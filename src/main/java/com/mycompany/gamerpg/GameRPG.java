@@ -1,16 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.gamerpg;
 
-/**
- *
- * @author curti
- */
 public class GameRPG {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        JFrame window = new JFrame();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setTitle("Game RPG");
+        
+        
+        GamePanel gp = new GamePanel();
+        window.add(gp);
+        
+        window.pack();
+        
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
     }
 }
