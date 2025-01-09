@@ -8,8 +8,8 @@ public class GamePanel extends JPanel implements Runnable{
     
     final int originalTileSize = 16; //Might not need? not sure.
     
-    int screenWidth = 1300;
-    int screenHeight = 768;
+    int screenWidth = 60 * 16;
+    int screenHeight = 60 * 9;
     
     Thread gameThread;
     public GamePanel(){
@@ -33,5 +33,12 @@ public class GamePanel extends JPanel implements Runnable{
             //TODO
             //Add in the update and repaint functions
          }
+    }
+    private void update(){
+        
+    }
+    private void paintComponent(Graphics g){
+    //I forget this part...
+        
     }
 }
