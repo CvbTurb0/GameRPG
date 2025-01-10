@@ -2,6 +2,8 @@ package com.mycompany.gameRPG;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable{
@@ -19,11 +21,11 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     int fps = 60;
-    double lastTime = System.nanotime();
+    double lastTime = System.nanoTime();
     double currentTime;
     @Override //Delta Time
     public void run() {
-        currentTime = System.nanotime();
+        currentTime = System.nanoTime();
         if ((currentTime - lastTime)/1e9/fps >= 1){
             lastTime = currentTime;
 
@@ -34,10 +36,13 @@ public class GamePanel extends JPanel implements Runnable{
             //Add in the update and repaint functions
          }
     }
-    private void update(){
+    public void update(){
         
     }
-    private void paintComponent(Graphics g){
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        
+        Graphics2D g2 = (Graphics2D)g;
     //I forget this part...
         
     }
