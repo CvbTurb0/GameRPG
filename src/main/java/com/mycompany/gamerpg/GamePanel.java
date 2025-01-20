@@ -1,10 +1,9 @@
-package com.mycompany.gameRPG;
-
-import java.awt.Color;
+package com.mycompany.gamerpg;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class GamePanel extends JPanel implements Runnable{
     
