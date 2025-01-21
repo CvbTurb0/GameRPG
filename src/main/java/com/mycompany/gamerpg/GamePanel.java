@@ -1,9 +1,12 @@
-package com.mycompany.gamerpg;
+package com.mycompany.GameRPG;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import java.awt.Color;
+import com.mycompany.Listeners.MouseCListener;
+import com.mycompany.Listeners.MouseMListener;
+
 
 public class GamePanel extends JPanel implements Runnable{
     
@@ -12,11 +15,19 @@ public class GamePanel extends JPanel implements Runnable{
     int screenWidth = 60 * 16;
     int screenHeight = 60 * 9;
     
+    
+
     Thread gameThread;
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.white);
         this.setDoubleBuffered(true);
+
+        MouseCListener MouseCListener = new MouseCListener();
+        MouseMListener MouseMListener = new MouseMListener();
+
+        this.addMouseListener(MouseCListener);
+        this.addMouseMotionListener(MouseMListener);
     }
 
     int fps = 60;
@@ -33,6 +44,8 @@ public class GamePanel extends JPanel implements Runnable{
             this.repaint();
             //TODO
             //Add in the update and repaint functions
+            //Add in the key listener
+        
          }
     }
     public void update(){
@@ -42,7 +55,8 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
         
         Graphics2D g2 = (Graphics2D)g;
-    //I forget this part...
-        
+
+        g2.setColor(Color.black);
+
     }
 }

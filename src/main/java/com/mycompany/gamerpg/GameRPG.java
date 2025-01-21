@@ -1,4 +1,4 @@
-package com.mycompany.gamerpg;
+package com.mycompany.GameRPG;
 
 import javax.swing.JFrame; 
 

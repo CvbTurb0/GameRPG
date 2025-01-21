@@ -1,4 +1,4 @@
-package com.mycompany.gamerpg;
+package com.mycompany.Listeners;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;

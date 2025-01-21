@@ -1,0 +1,26 @@
+package com.mycompany.Listeners;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class KeyListener implements KeyListener {
+
+    GamePanel gp;
+    public KeyListener() {
+        this.gp = gp;
+    }   
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Handle key typed event
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        // Handle key pressed event
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // Handle key released event
+    }
+}
