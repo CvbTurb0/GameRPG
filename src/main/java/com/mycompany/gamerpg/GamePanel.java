@@ -6,8 +6,11 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import com.mycompany.Listeners.MouseCListener;
 import com.mycompany.Listeners.MouseMListener;
+import com.mycompany.EntityHandler.Entity;
 import com.mycompany.ImageHandlers.ImageSetup;
-
+import com.mycompany.ImageHandlers.EntityImageHandler;
+import com.mycompany.EntityHandler.EntityDictionary;
+import com.mycompany.EntityHandler.EntityHandler;
 
 public class GamePanel extends JPanel implements Runnable{
     
@@ -20,7 +23,10 @@ public class GamePanel extends JPanel implements Runnable{
 
     Thread gameThread;
     //Classes
-    ImageSetup ImageSetup = new ImageSetup(this);
+    public ImageSetup imageSetup = new ImageSetup(this);
+    EntityImageHandler entityImageH = new EntityImageHandler(this);    
+    public EntityHandler entityH = new EntityHandler();
+    public EntityDictionary entityD = new EntityDictionary();
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -68,24 +74,23 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
     public void Setup(){
-        ImageSetup.setupImages();
+        imageSetup.setupImages();
+        entityH.setupEntities();
+        entityD.setupDefaultAnimations();
+
     }
     public void update(){
-        
+        entityH.updateEntities();   
     }
-    int index = 0;
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         
         Graphics2D g2 = (Graphics2D)g;
 
         g2.setColor(Color.black);
-        g2.drawImage(ImageSetup.characterSpriteSheet[0][index/60], 64, 64, 64, 64, null);
+        entityImageH.drawEntity(g2);
 
-        index++;
-        if (index == ImageSetup.characterSpriteSheet[0].length*60){
-            index = 0;
-        }
+
        
 
     }
