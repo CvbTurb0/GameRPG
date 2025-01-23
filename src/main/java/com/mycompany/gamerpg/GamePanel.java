@@ -25,7 +25,7 @@ public class GamePanel extends JPanel implements Runnable{
     //Classes
     public ImageSetup imageSetup = new ImageSetup(this);
     EntityImageHandler entityImageH = new EntityImageHandler(this);    
-    public EntityHandler entityH = new EntityHandler();
+    public EntityHandler entityH = new EntityHandler(this);
     public EntityDictionary entityD = new EntityDictionary();
 
     public GamePanel(){

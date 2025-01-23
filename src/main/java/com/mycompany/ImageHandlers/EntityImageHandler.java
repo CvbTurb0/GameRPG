@@ -25,17 +25,10 @@ public class EntityImageHandler {
                 height = gp.entityH.entityList[i].height;
                 frame = gp.entityH.entityList[i].animationIndex;
             
-                if(gp.entityH.entityList[i].name.equals("player")){
-                    g2.drawImage(gp.imageSetup.characterSpriteSheet[gp.entityD.entityMap.get(gp.entityH.entityList[i].name).get(gp.entityH.entityList[i].animation)][frame], x, y, width, height, null);
-                }
-                else if(gp.entityH.entityList[i].name.equals("chicken")){
-                    g2.drawImage(gp.imageSetup.enemySpriteSheet[gp.entityD.entityMap.get(gp.entityH.entityList[i].name).get(gp.entityH.entityList[i].animation)][frame], x, y, width, height, null);
-                    //System.out.println(gp.entityD.entityMap.get(gp.entityH.entityList[i].name).get(gp.entityH.entityList[i].animation));
-                }
-                else
-                    g2.drawImage(gp.imageSetup.characterSpriteSheet[gp.entityD.entityMap.get(gp.entityH.entityList[i].name).get(gp.entityH.entityList[i].animation)][frame], x, y, width, height, null);
+                g2.drawImage(gp.imageSetup.animationMap.get(gp.entityH.entityList[i].name)[gp.entityD.entityMap.get(gp.entityH.entityList[i].name).get(gp.entityH.entityList[i].animation)][frame], x, y, width, height, null);
+               
             }
-        }
 
+        }
     }
 }

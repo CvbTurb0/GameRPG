@@ -13,6 +13,7 @@ public class Entity {
     public int attackCooldown;
     public int attackCooldownMax;
     public boolean isAlive;
+    public String type;
 
     //For Animation
     public String name;

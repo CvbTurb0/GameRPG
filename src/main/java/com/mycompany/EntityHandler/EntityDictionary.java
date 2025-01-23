@@ -27,5 +27,11 @@ public class EntityDictionary {
         chicken.put("hurt", 3);
         chicken.put("dead", 4);
         entityMap.put("chicken",chicken);
+
+        Map<String, Integer> button = new HashMap<String, Integer>();
+        button.put("idle", 0);
+        button.put("pressed",1);
+
+        entityMap.put("button", button); 
     }
 }

@@ -2,6 +2,9 @@ package com.mycompany.ImageHandlers;
 
 import com.mycompany.GameRPG.GamePanel;
 import java.awt.image.BufferedImage;
+import java.nio.Buffer;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ImageSetup {
     
@@ -11,14 +14,19 @@ public class ImageSetup {
     }   
     public BufferedImage[][] characterSpriteSheet;
     public BufferedImage[][] enemySpriteSheet;
-
+    public BufferedImage[][] buttonSpriteSheet;
+    public Map<String, BufferedImage[][]> animationMap = new HashMap<>();
     SpriteSheetHandler ssh = new SpriteSheetHandler();
     public void setupImages(){
         System.out.println("Setting up images");
         characterSpriteSheet = ssh.loadSpriteSheet("src\\main\\Resources\\Pictures\\characterSpriteSheet.png", 16, 16,16,16);
         enemySpriteSheet = ssh.loadSpriteSheet("src\\main\\Resources\\Pictures\\enemySpriteSheet.png", 16, 16);
-        
+        buttonSpriteSheet = ssh.loadSpriteSheet("src\\main\\Resources\\Pictures\\buttonSpriteSheet.png", 32, 32);
 
+        animationMap.put("player", characterSpriteSheet);
+        animationMap.put("chicken", enemySpriteSheet);
+        animationMap.put("button", buttonSpriteSheet);
+        System.out.println(buttonSpriteSheet[0].length);
     }
 }
 
