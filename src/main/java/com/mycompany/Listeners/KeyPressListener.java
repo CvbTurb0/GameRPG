@@ -39,7 +39,6 @@ public class KeyPressListener implements KeyListener {
     }
     @Override
     public void keyTyped(KeyEvent e) {
-      
         // Handle key typed event
     }
 

@@ -39,6 +39,7 @@ public class GamePanel extends JPanel implements Runnable{
     MouseCListener MouseCListener = new MouseCListener(this);
     MouseMListener MouseMListener = new MouseMListener();
     KeyPressListener KeyPressListener = new KeyPressListener(this);
+
     
     
     public GamePanel(){
@@ -101,7 +102,7 @@ public class GamePanel extends JPanel implements Runnable{
         entityH.updateEntities();  
         buttonH.update(); 
         MouseCListener.update();
-        //KeyPressListener.update();
+        KeyPressListener.update();
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
