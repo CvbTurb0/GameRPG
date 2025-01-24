@@ -17,6 +17,9 @@ public class GameRPG {
         
         window.pack();
         
+        window.setFocusable(true);
+        window.requestFocusInWindow();
+        
         window.setLocationRelativeTo(null);
         window.setVisible(true);
     }

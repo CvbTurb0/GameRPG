@@ -6,11 +6,14 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import com.mycompany.Listeners.MouseCListener;
 import com.mycompany.Listeners.MouseMListener;
+import com.mycompany.Listeners.KeyPressListener;
 import com.mycompany.ImageHandlers.ImageSetup;
 import com.mycompany.ImageHandlers.EntityImageHandler;
 import com.mycompany.EntityHandler.EntityDictionary;
 import com.mycompany.EntityHandler.EntityHandler;
+import com.mycompany.EntityHandler.PlayerManager;
 import com.mycompany.Buttons.ButtonHandler;
+
 
 public class GamePanel extends JPanel implements Runnable{
     
@@ -31,16 +34,22 @@ public class GamePanel extends JPanel implements Runnable{
     public EntityHandler entityH = new EntityHandler(this);
     public EntityDictionary entityD = new EntityDictionary();
     public ButtonHandler buttonH = new ButtonHandler(this);
+    public PlayerManager playerM = new PlayerManager(this);
 
     MouseCListener MouseCListener = new MouseCListener(this);
     MouseMListener MouseMListener = new MouseMListener();
-
+    KeyPressListener KeyPressListener = new KeyPressListener(this);
     
     
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.white);
         this.setDoubleBuffered(true);
+
+        this.setFocusable(true);
+        this.requestFocusInWindow();
+
+        this.addKeyListener(KeyPressListener);
 
         this.addMouseListener(MouseCListener);
         this.addMouseMotionListener(MouseMListener);
@@ -92,6 +101,7 @@ public class GamePanel extends JPanel implements Runnable{
         entityH.updateEntities();  
         buttonH.update(); 
         MouseCListener.update();
+        //KeyPressListener.update();
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
