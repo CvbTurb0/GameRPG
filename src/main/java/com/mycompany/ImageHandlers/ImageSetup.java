@@ -2,7 +2,6 @@ package com.mycompany.ImageHandlers;
 
 import com.mycompany.GameRPG.GamePanel;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +25,6 @@ public class ImageSetup {
         animationMap.put("player", characterSpriteSheet);
         animationMap.put("chicken", enemySpriteSheet);
         animationMap.put("button", buttonSpriteSheet);
-        System.out.println(buttonSpriteSheet[0].length);
     }
 }
 

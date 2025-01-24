@@ -1,6 +1,5 @@
 package com.mycompany.ImageHandlers;
 
-import com.mycompany.GameRPG.GamePanel; 
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -20,7 +19,6 @@ public class SpriteSheetHandler {
         int y =0;
         try{
             bigSheet = ImageIO.read(new File(path));
-            System.out.println("Read");
             int rows = bigSheet.getHeight() / (height+yOffset*2);
             int cols = bigSheet.getWidth() / (width+xOffset*2);
             spriteSheet = new BufferedImage[rows][cols];
@@ -47,7 +45,6 @@ public class SpriteSheetHandler {
         BufferedImage[][] spriteSheet = null;
         try{
             bigSheet = ImageIO.read(new File(path));
-            System.out.println("Read");
             int rows = bigSheet.getHeight() / height;
             int cols = bigSheet.getWidth() / width;
             spriteSheet = new BufferedImage[rows][cols];

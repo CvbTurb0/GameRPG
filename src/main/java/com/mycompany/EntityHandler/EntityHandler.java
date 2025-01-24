@@ -7,8 +7,7 @@ public class EntityHandler {
     public Entity entityList[] = new Entity[100];
     Entity player, chicken, button;
     int entityCount = 0;
-    int frameCount = 0;
-    int frameDelay = 10;
+
     GamePanel gp;
     public EntityHandler(GamePanel gp){
         this.gp = gp;
@@ -62,15 +61,13 @@ public class EntityHandler {
 
         addEntity(player);
         addEntity(chicken);
-        addEntity(button);
+       // addEntity(button);
     }
     public void updateEntities(){
-        frameCount++;
-        if(frameCount % frameDelay == 0){
+        if(gp.frameCount % gp.frameDelay == 0){
             for (int i = 0; i < entityCount; i++){
                 if (entityList[i].isAlive){
                     entityList[i].animationIndex++;
-                    System.out.println(entityList[2].animationIndex);
 
                     if (entityList[i].animationIndex > gp.imageSetup.animationMap.get(entityList[i].name)[0].length - 1){
                         entityList[i].animationIndex = 0;
