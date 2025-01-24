@@ -16,20 +16,21 @@ public class ButtonHandler {
         addButton(400, 400, 32, 32, "button", () -> {
             System.out.println("Button 1 pressed");
             //buttons[0].isAlive = false;
-            if(gp.entityH.entityList[0].animation.equals("idle")){
-                gp.entityH.entityList[0].animation = "walk";
+            if(gp.entityH.entityList[gp.playerM.currentPlayerIndex].animation.equals("idle")){
+                gp.entityH.entityList[gp.playerM.currentPlayerIndex].animation = "walkUp";
             }
             else{
-                gp.entityH.entityList[0].animation = "idle";
+                gp.entityH.entityList[gp.playerM.currentPlayerIndex].animation = "idle";
             }   
         });
-        addButton(200, 400, 32, 32, "button", () -> {
+        addButton(500, 400, 32, 32, "button", () -> {
             System.out.println("Button 2 pressed");
-            buttons[1].isAlive = false;
+            gp.entityH.entityList[gp.playerM.currentPlayerIndex].isAlive = false;
         });
-        addButton(300, 400, 32, 32, "button", () -> {
+        addButton(600, 400, 32, 32, "button", () -> {
             System.out.println("Button 3 pressed");
-            buttons[2].isAlive = false;
+            gp.playerM.addPlayer();
+            
         });
     }
 

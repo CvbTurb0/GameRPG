@@ -1,11 +1,12 @@
 package com.mycompany.EntityHandler;
 
 import com.mycompany.GameRPG.GamePanel;
+import com.mycompany.EntityHandler.Entity;
 
 public class EntityHandler {
 
     public Entity entityList[] = new Entity[100];
-    Entity player, chicken, button;
+    public  Entity player, chicken, button;
     int entityCount = 0;
 
     GamePanel gp;
@@ -59,35 +60,67 @@ public class EntityHandler {
         button.height = 32;
         button.isAlive = true;
 
+        Entity playerCopy = new Entity();
         addEntity(player);
         addEntity(chicken);
        // addEntity(button);
     }
+        
+    
     public void updateEntities(){
+        //Update animation
         if(gp.frameCount % gp.frameDelay == 0){
             for (int i = 0; i < entityCount; i++){
-                if (entityList[i].isAlive){
-                    entityList[i].animationIndex++;
-
-                    if (entityList[i].animationIndex > gp.imageSetup.animationMap.get(entityList[i].name)[0].length - 1){
-                        entityList[i].animationIndex = 0;
-                    }
-                    //TODO: Add Stuff
-                    // - Add entity movement
-                    // - Add entity collision
-                    // - Add entity attack
-                    // - Add entity death
+                entityList[i].animationIndex++;
+                if (entityList[i].animationIndex > gp.imageSetup.animationMap.get(entityList[i].name)[0].length - 1){
+                    entityList[i].animationIndex = 0;
                 }
             }
         }
+        for (int i = 0; i < gp.entityH.entityCount; i++){
+            if(!entityList[i].isAlive){
+                System.out.println(entityList[i].name + " " + entityList[i].health);
+                entityList[i].health -= 1;
+                System.out.println(entityList[i].name + " " + entityList[i].health);
+            }
+            if(entityList[i].health <= 0){
+                enemyDeath(i);
+            }
+        }
+
     }   
     public void enemyDeath(int index){
+
+        if(entityList[index].isAlive){
+            entityList[index].isAlive = false;
+            entityList[index].health = 120;
+            entityList[index].animation = "dead";
+        }else{
+            String name = entityList[index].name;
+            int health = entityList[index].health;
+            entityList[index] = entityList[entityCount - 1];
+            entityList[entityCount - 1] = null;
+            entityCount--;
+            if (name.equals("player")){
+                gp.playerM.playerCount --;
+            }
+            System.out.println(entityCount);
+            
+            System.out.println("Entity removed: " + name + " Reason: " + health );
+           
+        }
+        //Set health to 10*length of death animation
+        
+
+
+
         //TODO
         //Add death animation
         //Remove entity from entity array
     }
     public void addEntity(Entity e){
-        entityList[entityCount] = e;
+        entityList[entityCount] = new Entity(e);
+
         entityCount++;
     }
 }

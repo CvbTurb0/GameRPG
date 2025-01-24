@@ -12,12 +12,13 @@ public class EntityDictionary {
     public Map<String, Map<String, Integer>> entityMap = new HashMap<String, Map<String,Integer>>();
 
     public void setupDefaultAnimations(){
-        Map<String, Integer> player = new HashMap<String, Integer>();
+        Map<String, Integer> player = new HashMap<String, Integer>(); //Down, up, left, right
         player.put("idle", 0);
-        player.put("walk", 1);
-        player.put("attack", 2);
-        player.put("hurt", 3);
-        player.put("dead", 4);
+        player.put("walkDown", 0);
+        player.put("walkUp", 1);
+        player.put("walkLeft", 2);
+        player.put("walkRight", 3);
+        player.put("dead", 3);
         entityMap.put("player", player);
 
         Map<String, Integer> chicken = new HashMap<String, Integer>();

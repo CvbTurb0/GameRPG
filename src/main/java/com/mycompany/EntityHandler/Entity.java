@@ -20,5 +20,25 @@ public class Entity {
     public String animation;
     public int animationIndex;
 
+    public Entity(Entity other) {
+        this.name = other.name;
+        this.animation = other.animation;
+        this.animationIndex = other.animationIndex;
+        this.x = other.x;
+        this.y = other.y;
+        this.width = other.width;
+        this.height = other.height;
+        this.direction = other.direction;
+        this.speed = other.speed;
+        this.health = other.health;
+        this.damage = other.damage;
+        this.attackSpeed = other.attackSpeed;
+        this.attackRange = other.attackRange;
+        this.attackCooldown = other.attackCooldown;
+        this.attackCooldownMax = other.attackCooldownMax;
+        this.isAlive = other.isAlive;
+    }
+    public Entity() {
+    }
 
 }
