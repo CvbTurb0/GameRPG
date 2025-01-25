@@ -9,6 +9,7 @@ public class KeyPressListener implements KeyListener {
 
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, enterPressed, escPressed;
+    public boolean spaceTyped;
     
     GamePanel gp;
     public KeyPressListener(GamePanel gp) {
@@ -36,10 +37,18 @@ public class KeyPressListener implements KeyListener {
         }
         gp.playerM.move(xChange, yChange);
 
+        if (spaceTyped && gp.textboxH.textboxOpen){
+            gp.textboxH.actionTextbox();
+        }
+        spaceTyped = false;
+
+
     }
     @Override
     public void keyTyped(KeyEvent e) {
-        // Handle key typed event
+        if(e.getKeyChar() == ' '){
+            spaceTyped = true;
+        }
     }
 
     @Override

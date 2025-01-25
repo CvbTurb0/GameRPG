@@ -1,7 +1,6 @@
 package com.mycompany.EntityHandler;
 
 import com.mycompany.GameRPG.GamePanel;
-import com.mycompany.EntityHandler.Entity;
 
 public class EntityHandler {
 
@@ -60,7 +59,6 @@ public class EntityHandler {
         button.height = 32;
         button.isAlive = true;
 
-        Entity playerCopy = new Entity();
         addEntity(player);
         addEntity(chicken);
        // addEntity(button);

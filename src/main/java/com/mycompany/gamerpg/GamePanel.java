@@ -13,6 +13,7 @@ import com.mycompany.EntityHandler.EntityDictionary;
 import com.mycompany.EntityHandler.EntityHandler;
 import com.mycompany.EntityHandler.PlayerManager;
 import com.mycompany.Buttons.ButtonHandler;
+import com.mycompany.Textboxes.TextboxHandler;
 
 
 public class GamePanel extends JPanel implements Runnable{
@@ -24,6 +25,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public int frameCount;
     public int frameDelay = 10;
+    public int textDelay = 7;
     
     
 
@@ -35,6 +37,7 @@ public class GamePanel extends JPanel implements Runnable{
     public EntityDictionary entityD = new EntityDictionary();
     public ButtonHandler buttonH = new ButtonHandler(this);
     public PlayerManager playerM = new PlayerManager(this);
+    public TextboxHandler textboxH = new TextboxHandler(this);
 
     MouseCListener MouseCListener = new MouseCListener(this);
     MouseMListener MouseMListener = new MouseMListener();
@@ -95,6 +98,7 @@ public class GamePanel extends JPanel implements Runnable{
         entityH.setupEntities();
         entityD.setupDefaultAnimations();
         buttonH.setupButtons();
+        textboxH.setup();
 
     }
     public void update(){
@@ -103,6 +107,7 @@ public class GamePanel extends JPanel implements Runnable{
         buttonH.update(); 
         MouseCListener.update();
         KeyPressListener.update();
+        textboxH.update();
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -112,6 +117,7 @@ public class GamePanel extends JPanel implements Runnable{
         g2.setColor(Color.black);
         entityImageH.drawEntity(g2);
         buttonH.drawButtons(g2);
+        textboxH.drawTextbox(g2);
 
 
        

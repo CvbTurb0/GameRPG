@@ -15,13 +15,7 @@ public class ButtonHandler {
     public void setupButtons(){
         addButton(400, 400, 32, 32, "button", () -> {
             System.out.println("Button 1 pressed");
-            //buttons[0].isAlive = false;
-            if(gp.entityH.entityList[gp.playerM.currentPlayerIndex].animation.equals("idle")){
-                gp.entityH.entityList[gp.playerM.currentPlayerIndex].animation = "walkUp";
-            }
-            else{
-                gp.entityH.entityList[gp.playerM.currentPlayerIndex].animation = "idle";
-            }   
+            gp.textboxH.openTextbox(0); 
         });
         addButton(500, 400, 32, 32, "button", () -> {
             System.out.println("Button 2 pressed");
@@ -63,6 +57,5 @@ public class ButtonHandler {
                 }
             }
         }
-
     }
 }
