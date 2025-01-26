@@ -27,11 +27,8 @@ public class MouseCListener implements MouseListener{
     if(released){
       for (int i = 0; i < gp.buttonH.buttonCount; i++){
         //Check if the mouse click is within the button's bounds and if the button is alive
-        if(clickX > gp.buttonH.buttons[i].x && clickX < gp.buttonH.buttons[i].x + gp.buttonH.buttons[i].width &&
-         clickY > gp.buttonH.buttons[i].y && clickY < gp.buttonH.buttons[i].y + gp.buttonH.buttons[i].height &&
-         gp.buttonH.buttons[i].isAlive){
-
-          gp.buttonH.buttons[i].action.run();
+        if (gp.buttonH.buttons[i].hover && gp.buttonH.buttons[i].isAlive){
+          gp.buttonH.buttons[i].onClick.run();
         }
       }
     }

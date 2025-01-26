@@ -14,14 +14,16 @@ import com.mycompany.EntityHandler.EntityHandler;
 import com.mycompany.EntityHandler.PlayerManager;
 import com.mycompany.Buttons.ButtonHandler;
 import com.mycompany.Textboxes.TextboxHandler;
+import com.mycompany.Cards.CardHandler;
+
 
 
 public class GamePanel extends JPanel implements Runnable{
     
     final int originalTileSize = 16; //Might not need? not sure.
     
-    int screenWidth = 60 * 16;
-    int screenHeight = 60 * 9;
+    public int screenWidth = 60 * 16; //960
+    public int screenHeight = 60 * 9; //540
 
     public int frameCount;
     public int frameDelay = 10;
@@ -38,9 +40,10 @@ public class GamePanel extends JPanel implements Runnable{
     public ButtonHandler buttonH = new ButtonHandler(this);
     public PlayerManager playerM = new PlayerManager(this);
     public TextboxHandler textboxH = new TextboxHandler(this);
+    public CardHandler cardH = new CardHandler(this);
 
     MouseCListener MouseCListener = new MouseCListener(this);
-    MouseMListener MouseMListener = new MouseMListener();
+    MouseMListener MouseMListener = new MouseMListener(this);
     KeyPressListener KeyPressListener = new KeyPressListener(this);
 
     
@@ -99,6 +102,7 @@ public class GamePanel extends JPanel implements Runnable{
         entityD.setupDefaultAnimations();
         buttonH.setupButtons();
         textboxH.setup();
+        cardH.setupCards();
 
     }
     public void update(){
@@ -108,6 +112,7 @@ public class GamePanel extends JPanel implements Runnable{
         MouseCListener.update();
         KeyPressListener.update();
         textboxH.update();
+        cardH.update();
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -118,9 +123,7 @@ public class GamePanel extends JPanel implements Runnable{
         entityImageH.drawEntity(g2);
         buttonH.drawButtons(g2);
         textboxH.drawTextbox(g2);
-
-
-       
+        cardH.drawCards(g2);
 
     }
 }

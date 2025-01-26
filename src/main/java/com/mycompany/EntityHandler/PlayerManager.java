@@ -43,11 +43,6 @@ public class PlayerManager {
             gp.entityH.entityList[gp.entityH.entityCount] = new Entity();
             gp.entityH.addEntity(gp.entityH.player);
             currentPlayerIndex = gp.entityH.entityCount -1;
-            System.out.println(gp.entityH.entityCount);
-            System.out.println(currentPlayerIndex);
-            for (int i = 0; i < gp.entityH.entityCount; i++){
-                System.out.println(gp.entityH.entityList[i].name);
-            }
             playerCount++;
         }
     }

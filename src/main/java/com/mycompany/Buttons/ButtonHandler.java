@@ -13,21 +13,47 @@ public class ButtonHandler {
     public int buttonCount = 0;
 
     public void setupButtons(){
-        addButton(400, 400, 32, 32, "button", () -> {
+        addButton(700, 100, 32, 32, "button", () -> {
             System.out.println("Button 1 pressed");
-            gp.textboxH.openTextbox(0); 
-        });
-        addButton(500, 400, 32, 32, "button", () -> {
+            gp.cardH.getCard(gp.cardH.handCount);
+        }
+        );
+        addButton(800, 100, 32, 32, "button", () -> {
             System.out.println("Button 2 pressed");
             gp.entityH.entityList[gp.playerM.currentPlayerIndex].isAlive = false;
         });
-        addButton(600, 400, 32, 32, "button", () -> {
+        addButton(900, 100, 32, 32, "button", () -> {
             System.out.println("Button 3 pressed");
             gp.playerM.addPlayer();
             
         });
+       
     }
+    public void replaceButton(  double x, double y, double width, double height, String name, Runnable action, int index){
+        buttons[index].x = x;
+        buttons[index].y = y;
+        buttons[index].width = width;
+        buttons[index].height = height;
+        buttons[index].name = name;
+        buttons[index].onClick = action;
+        buttons[index].isAlive = true;
+    }
+    public void startHover(int index){
+        buttons[index].hover = true;
+        buttons[index].width = (buttons[index].width * 1.1);
+        buttons[index].height = (buttons[index].height * 1.1);
+        buttons[index].x = buttons[index].x - (buttons[index].width * 0.05);
+        buttons[index].y = buttons[index].y - (buttons[index].height * 0.05);
+    }
+    public void endHover(int index){
 
+        buttons[index].hover = false;
+        
+        buttons[index].x = buttons[index].x + (buttons[index].width * 0.05);
+        buttons[index].y = buttons[index].y + (buttons[index].height * 0.05);
+        buttons[index].width = (buttons[index].width / 1.1);
+        buttons[index].height = (buttons[index].height / 1.1);
+    }
     public void addButton(int x, int y, int width, int height, String name, Runnable action){
         Button button = new Button();
         button.x = x;
@@ -35,7 +61,7 @@ public class ButtonHandler {
         button.width = width;
         button.height = height;
         button.name = name;
-        button.action = action;
+        button.onClick = action;
         button.isAlive = true;
         buttons[buttonCount] = button;
         buttonCount++;
@@ -43,7 +69,12 @@ public class ButtonHandler {
     public void drawButtons(Graphics2D g2){
         for(int i = 0; i < buttonCount; i++){
             if(buttons[i].isAlive){
-                g2.drawImage((BufferedImage) (gp.imageSetup.animationMap.get(buttons[i].name)[0][buttons[i].frame]), buttons[i].x, buttons[i].y, buttons[i].width, buttons[i].height, null);
+                if (buttons[i].hover){
+                    g2.drawImage((BufferedImage) (gp.imageSetup.animationMap.get(buttons[i].name)[0][buttons[i].frame]), (int) buttons[i].x, (int)(buttons[i].y - (buttons[i].height * 0.2)), (int)(buttons[i].width * 1.3), (int)(buttons[i].height * 1.3), null);
+                }
+                else{
+                    g2.drawImage((BufferedImage) (gp.imageSetup.animationMap.get(buttons[i].name)[0][buttons[i].frame]), (int) buttons[i].x,(int) buttons[i].y, (int) buttons[i].width, (int) buttons[i].height, null);
+                }
             }
         }
     }

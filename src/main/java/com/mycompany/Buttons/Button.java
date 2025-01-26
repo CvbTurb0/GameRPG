@@ -2,11 +2,12 @@ package com.mycompany.Buttons;
 
 public class Button {
 
-    public int x, y, width, height;
+    public double x, y, width, height;
     public int frame;
     public String animation;
     public String name;
-    public Runnable action;
+    public Runnable onClick;
+    public boolean hover;
 
     public boolean isAlive;
 

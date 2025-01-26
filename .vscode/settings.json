@@ -1,5 +1,6 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
-    "java.configuration.runtime": "JRE"
-    
+    "java.configuration.runtime": "JRE",
+    "maven.executable.path": "C:\\Users\\curti\\Downloads\\apache-maven-3.9.9-bin\\apache-maven-3.9.9\\bin\\mvn.cmd"
+       
 }
