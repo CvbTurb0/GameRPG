@@ -9,6 +9,7 @@ public class Card {
     public String name;
     public boolean inHand;
     public boolean selected;
+    public boolean hovered;
 
 
 }

@@ -20,11 +20,12 @@ public class ButtonHandler {
         );
         addButton(800, 100, 32, 32, "button", () -> {
             System.out.println("Button 2 pressed");
-            gp.entityH.entityList[gp.playerM.currentPlayerIndex].isAlive = false;
+            gp.stateM.gameState = "fight";
         });
         addButton(900, 100, 32, 32, "button", () -> {
             System.out.println("Button 3 pressed");
             gp.playerM.addPlayer();
+            gp.stateM.gameState = "overworld"; 
             
         });
        

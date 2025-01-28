@@ -40,6 +40,7 @@ public class MouseCListener implements MouseListener{
   public void mouseClicked(MouseEvent e){
     clickX = e.getX();
     clickY = e.getY();
+    gp.cardH.click();
 
 
   }

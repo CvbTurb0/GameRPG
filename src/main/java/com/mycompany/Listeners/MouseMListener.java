@@ -20,7 +20,7 @@ public class MouseMListener implements MouseMotionListener{
   @Override
   public void mouseMoved(MouseEvent e){
     x = e.getX();
-    y= e.getY();
+    y = e.getY();
     //Check if its hovering over a button
     for (int i = 0; i < gp.buttonH.buttonCount; i++){
       if(x > gp.buttonH.buttons[i].x && x < gp.buttonH.buttons[i].x + gp.buttonH.buttons[i].width &&
@@ -33,25 +33,6 @@ public class MouseMListener implements MouseMotionListener{
         gp.buttonH.endHover(i);
       }
     }
-    
-    boolean hovered = false;
-    gp.cardH.cardList[gp.cardH.handHovered].selected = false;
-    for (int i = 0; i < gp.cardH.handCount; i++){
-      if (x > gp.cardH.cardList[gp.cardH.hand[i]].x && x < gp.cardH.cardList[gp.cardH.hand[i]].x + gp.cardH.cardList[gp.cardH.hand[i]].width &&
-        y > gp.cardH.cardList[gp.cardH.hand[i]].y && y < gp.cardH.cardList[gp.cardH.hand[i]].y + gp.cardH.cardList[gp.cardH.hand[i]].height) {
-        
-          gp.cardH.handHovered = i;
-          System.out.println(i);
-          hovered = true;
-    }
-    gp.cardH.cardList[gp.cardH.handHovered].selected = true;
-
-    
-
-    
-     
-
   }
-}
 }
 

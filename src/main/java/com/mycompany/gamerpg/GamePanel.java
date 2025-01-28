@@ -42,9 +42,11 @@ public class GamePanel extends JPanel implements Runnable{
     public TextboxHandler textboxH = new TextboxHandler(this);
     public CardHandler cardH = new CardHandler(this);
 
-    MouseCListener MouseCListener = new MouseCListener(this);
-    MouseMListener MouseMListener = new MouseMListener(this);
-    KeyPressListener KeyPressListener = new KeyPressListener(this);
+    public StateManager stateM = new StateManager(this);
+
+    public MouseCListener MouseCListener = new MouseCListener(this);
+    public MouseMListener MouseMListener = new MouseMListener(this);
+    public KeyPressListener KeyPressListener = new KeyPressListener(this);
 
     
     
@@ -120,10 +122,20 @@ public class GamePanel extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D)g;
 
         g2.setColor(Color.black);
-        entityImageH.drawEntity(g2);
-        buttonH.drawButtons(g2);
-        textboxH.drawTextbox(g2);
-        cardH.drawCards(g2);
+
+    //  entityImageH.drawEntity(g2);
+    // buttonH.drawButtons(g2);
+        textboxH.drawTextbox(g2); //Probably should be on at all times
+    
+        switch(stateM.gameState){
+            case "overworld":
+                stateM.drawOverworld(g2);
+                break;
+            case "fight":
+                stateM.drawFight(g2);
+                break;
+
+        }
 
     }
 }
