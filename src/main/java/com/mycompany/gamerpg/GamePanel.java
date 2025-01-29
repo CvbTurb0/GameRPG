@@ -15,7 +15,7 @@ import com.mycompany.EntityHandler.PlayerManager;
 import com.mycompany.Buttons.ButtonHandler;
 import com.mycompany.Textboxes.TextboxHandler;
 import com.mycompany.Cards.CardHandler;
-
+import com.mycompany.Tiles.TileManager;
 
 
 public class GamePanel extends JPanel implements Runnable{
@@ -34,13 +34,14 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     //Classes
     public ImageSetup imageSetup = new ImageSetup(this);
-    EntityImageHandler entityImageH = new EntityImageHandler(this);    
+    public EntityImageHandler entityImageH = new EntityImageHandler(this);    
     public EntityHandler entityH = new EntityHandler(this);
     public EntityDictionary entityD = new EntityDictionary();
     public ButtonHandler buttonH = new ButtonHandler(this);
     public PlayerManager playerM = new PlayerManager(this);
     public TextboxHandler textboxH = new TextboxHandler(this);
     public CardHandler cardH = new CardHandler(this);
+    public TileManager tileM = new TileManager(this);
 
     public StateManager stateM = new StateManager(this);
 
@@ -72,6 +73,11 @@ public class GamePanel extends JPanel implements Runnable{
     double currentTime;
     double anotherLastTime = System.nanoTime();
     double frames = 0;
+
+    public int tileSize = 32; //32x32 squares
+
+    public int playerDrawPosX = screenWidth /2 - tileSize /2;
+    public int playerDrawPosY = screenHeight /2 - tileSize /2;
 
     @Override //Delta Time
     public void run() {
@@ -105,6 +111,7 @@ public class GamePanel extends JPanel implements Runnable{
         buttonH.setupButtons();
         textboxH.setup();
         cardH.setupCards();
+        tileM.setup();
 
     }
     public void update(){

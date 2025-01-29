@@ -14,8 +14,9 @@ public class StateManager {
     }
 
     public void drawOverworld(Graphics2D g2){
-       gp.entityImageH.drawEntity(g2);
-       gp.buttonH.drawButtons(g2);
+        gp.tileM.drawMap(g2);
+        gp.entityImageH.drawEntity(g2);
+        gp.buttonH.drawButtons(g2);
     }
     public void drawFight(Graphics2D g2){
         gp.entityImageH.drawEntity(g2);

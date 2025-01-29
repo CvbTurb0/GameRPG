@@ -17,8 +17,8 @@ public class EntityHandler {
         player.name = "player";
         player.animation = "idle";
         player.animationIndex = 0;
-        player.x = 100;
-        player.y = 100;
+        player.x = 1000;
+        player.y = 1000;
         player.width = 32;
         player.height = 32;
         player.direction = 0;

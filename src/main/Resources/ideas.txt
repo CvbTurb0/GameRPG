@@ -1,4 +1,2 @@
-How about a roguelike cardgame with AI rivals on the map? they can go to a shop and buy cards that you might want to buy,
-    you fight each other or avoid and the second last match is a battle royale between you
-Grid Based?
-Standard pokemon-ish overworld
+Simple auto shooter don't get overwhelmed
+
