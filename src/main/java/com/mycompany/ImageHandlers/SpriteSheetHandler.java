@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 
 public class SpriteSheetHandler {
@@ -17,8 +18,11 @@ public class SpriteSheetHandler {
         BufferedImage[][] spriteSheet = null;
         int x =0;
         int y =0;
-        try{
-            bigSheet = ImageIO.read(new File(path));
+        try (InputStream is = getClass().getResourceAsStream(path)) {
+            if (is == null) {
+                throw new IOException("Resource not found: " + path);
+            }
+            bigSheet = ImageIO.read(is);
             int rows = bigSheet.getHeight() / (height+yOffset*2);
             int cols = bigSheet.getWidth() / (width+xOffset*2);
             spriteSheet = new BufferedImage[rows][cols];
@@ -43,8 +47,11 @@ public class SpriteSheetHandler {
         //TODO
         //ADD in offsets for the sprite sheet
         BufferedImage[][] spriteSheet = null;
-        try{
-            bigSheet = ImageIO.read(new File(path));
+        try (InputStream is = getClass().getResourceAsStream(path)) {
+            if (is == null) {
+                throw new IOException("Resource not found: " + path);
+            }
+            bigSheet = ImageIO.read(is);
             int rows = bigSheet.getHeight() / height;
             int cols = bigSheet.getWidth() / width;
             spriteSheet = new BufferedImage[rows][cols];

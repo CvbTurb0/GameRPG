@@ -19,10 +19,10 @@ public class ImageSetup {
     SpriteSheetHandler ssh = new SpriteSheetHandler();
     public void setupImages(){
         System.out.println("Setting up images");
-        characterSpriteSheet = ssh.loadSpriteSheet("src\\main\\Resources\\Pictures\\characterSpriteSheet.png", 16, 16,16,16);
-        enemySpriteSheet = ssh.loadSpriteSheet("src\\main\\Resources\\Pictures\\enemySpriteSheet.png", 16, 16);
-        buttonSpriteSheet = ssh.loadSpriteSheet("src\\main\\Resources\\Pictures\\buttonSpriteSheet.png", 32, 32);
-        cardSpriteSheet = ssh.loadSpriteSheet("src\\main\\Resources\\Pictures\\cardSpriteSheet.png", 124, 185);
+        characterSpriteSheet = ssh.loadSpriteSheet("/Pictures/characterSpriteSheet.png", 16, 16,16,16);
+        enemySpriteSheet = ssh.loadSpriteSheet("/Pictures/enemySpriteSheet.png", 16, 16);
+        buttonSpriteSheet = ssh.loadSpriteSheet("/Pictures/buttonSpriteSheet.png", 32, 32);
+        cardSpriteSheet = ssh.loadSpriteSheet("/Pictures/cardSpriteSheet.png", 124, 185);
 
         animationMap.put("player", characterSpriteSheet);
         animationMap.put("chicken", enemySpriteSheet);

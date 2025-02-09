@@ -15,7 +15,7 @@ import com.mycompany.EntityHandler.PlayerManager;
 import com.mycompany.Buttons.ButtonHandler;
 import com.mycompany.Textboxes.TextboxHandler;
 import com.mycompany.Cards.CardHandler;
-import com.mycompany.Tiles.TileManager;
+//import com.mycompany.Tiles.TileManager;
 
 
 public class GamePanel extends JPanel implements Runnable{
@@ -41,7 +41,7 @@ public class GamePanel extends JPanel implements Runnable{
     public PlayerManager playerM = new PlayerManager(this);
     public TextboxHandler textboxH = new TextboxHandler(this);
     public CardHandler cardH = new CardHandler(this);
-    public TileManager tileM = new TileManager(this);
+    //public TileManager tileM = new TileManager(this);
 
     public StateManager stateM = new StateManager(this);
 
@@ -111,7 +111,7 @@ public class GamePanel extends JPanel implements Runnable{
         buttonH.setupButtons();
         textboxH.setup();
         cardH.setupCards();
-        tileM.setup();
+        //tileM.setup();
 
     }
     public void update(){
