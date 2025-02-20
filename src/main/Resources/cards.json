@@ -1,0 +1,13 @@
+[
+    {
+        "name": "growth",
+        "animation": "idle",
+        "animationFrame": 0,
+        "x": 0,
+        "y": 0,
+        "width": 133,
+        "height": 200,
+        "inHand": false,
+        "selected": false
+    }
+]

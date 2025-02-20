@@ -23,5 +23,4 @@ public class StateManager {
         gp.buttonH.drawButtons(g2);
         gp.cardH.drawCards(g2);
     }
-
 }

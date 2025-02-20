@@ -11,10 +11,12 @@ public class ImageSetup {
     public ImageSetup(GamePanel gp){
         this.gp = gp;
     }   
-    public BufferedImage[][] characterSpriteSheet;
-    public BufferedImage[][] enemySpriteSheet;
-    public BufferedImage[][] buttonSpriteSheet;
-    public BufferedImage[][] cardSpriteSheet;
+    BufferedImage[][] characterSpriteSheet;
+    BufferedImage[][] enemySpriteSheet;
+    BufferedImage[][] buttonSpriteSheet;
+    BufferedImage[][] cardSpriteSheet;
+    BufferedImage[][] growthSpriteSheet;
+
     public Map<String, BufferedImage[][]> animationMap = new HashMap<>();
     SpriteSheetHandler ssh = new SpriteSheetHandler();
     public void setupImages(){
@@ -23,11 +25,14 @@ public class ImageSetup {
         enemySpriteSheet = ssh.loadSpriteSheet("/Pictures/enemySpriteSheet.png", 16, 16);
         buttonSpriteSheet = ssh.loadSpriteSheet("/Pictures/buttonSpriteSheet.png", 32, 32);
         cardSpriteSheet = ssh.loadSpriteSheet("/Pictures/cardSpriteSheet.png", 124, 185);
+        growthSpriteSheet = ssh.loadSpriteSheet("/Pictures/GrowthCardSpritesheet.png", 133, 200);
+
 
         animationMap.put("player", characterSpriteSheet);
         animationMap.put("chicken", enemySpriteSheet);
         animationMap.put("button", buttonSpriteSheet);
         animationMap.put("card", cardSpriteSheet);
+        animationMap.put("growth", growthSpriteSheet);
     }
 }
 

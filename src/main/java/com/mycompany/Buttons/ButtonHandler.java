@@ -15,7 +15,7 @@ public class ButtonHandler {
     public void setupButtons(){
         addButton(700, 100, 32, 32, "button", () -> {
             System.out.println("Button 1 pressed");
-            gp.cardH.getCard(gp.cardH.handCount);
+            gp.cardH.getCard("growth");
         }
         );
         addButton(800, 100, 32, 32, "button", () -> {
