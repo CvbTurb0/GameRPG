@@ -1,6 +1,6 @@
 package com.mycompany.Cards;
 
-
+//Imports
 import java.awt.Graphics2D;
 import java.lang.reflect.Type;
 import java.io.InputStreamReader;
@@ -17,8 +17,8 @@ public class CardHandler {
     public CardHandler(GamePanel gp){
         this.gp = gp;
     }
-
-    public HashMap<String, Card> cardList = new HashMap<>();
+    //Variables
+    public HashMap<String, Card> cardList = new HashMap<>(); //Hashmap storing the base data for all cards
     public Card[] hand = new Card[100];
     public int handCount = 0;
     public int cardCount = 0;
@@ -30,23 +30,24 @@ public class CardHandler {
     int defaultWidth = 133;
     int defaultHeight = 200;
 
-    public void setupCards(){
+    public void setupCards(){ // Sets up the cards from the JSON file
         try (InputStreamReader reader = new InputStreamReader(getClass().getResourceAsStream("/cards.json"))) {
             Gson gson = new Gson();
             Type cardListType = new TypeToken<List<Card>>() {}.getType();
             List<Card> cards = gson.fromJson(reader, cardListType);
             for (Card card : cards) {
                 cardList.put(card.name, card);
-                System.out.println(card.name);
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //Initiate the hand
         for (int i = 0; i < hand.length; i++) {
             hand[i] = new Card();
         }
     }
-    public void getCard(String name){
+    public void getCard(String name){ //Add the card with "name" to the hand
     
             Card card = cardList.get(name);
             if (card != null) {
@@ -67,14 +68,15 @@ public class CardHandler {
             }
         
     }
-    public void drawCards(Graphics2D g2){
+    public void drawCards(Graphics2D g2){ //Draw the card at its coords
         for (int i = 0; i < handCount; i++){
             g2.drawImage(gp.imageSetup.animationMap.get(hand[i].name)[0][hand[i].animationFrame], (int) hand[i].x,(int) hand[i].y, defaultWidth, defaultHeight, null);
             System.out.println(hand[i].x);
         }
     }
     
-    public void update(){
+    public void update(){ //Mostly just changes the x,y, and the width
+// puts them within 1.5 base card widths from the middle
        
         int center = gp.screenWidth /2;
         int maxWidth = 3 * defaultWidth;
@@ -85,7 +87,8 @@ public class CardHandler {
         //Calculate width
         if (handCount > 3){
             if (handHovered != -1 && handHovered != handCount -1 && !hand[handHovered].selected ){
-                //maxWidth += defaultWidth;
+                
+
                 width = (maxWidth - 2*defaultWidth) / (handCount-2);
                 x = center - ((handCount-2)*width + 2 * defaultWidth )/2;
             }
@@ -111,8 +114,8 @@ public class CardHandler {
             }
         }
 
-        checkHover();
-        //update image
+        checkHover(); // You know what this does
+        //update image/animation
         if (gp.frameCount % animationDelay == 0){
             for (int i = 0; i < handCount; i++){
                 hand[i].animationFrame++;
@@ -127,7 +130,8 @@ public class CardHandler {
             }
         }
 
-    }public void checkHover(){
+    }public void checkHover(){ // Checks if a card is being hovered over 
+//You need to go over all, because they overlap with eachother
         boolean yes = false;        
         for (int i = 0; i < handCount; i++) {
             if (gp.MouseMListener.x >= hand[i].x && gp.MouseMListener.x <= hand[i].x + hand[i].width &&
@@ -151,6 +155,7 @@ public class CardHandler {
                 }
                 hand[handHovered].selected = true; 
 
+//Pins the selected card to the rightmost position
                 Card temp = new Card();
                 temp.x = hand[handHovered].x;
                 temp.y = hand[handHovered].y;
