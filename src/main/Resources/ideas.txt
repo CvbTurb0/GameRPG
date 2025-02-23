@@ -1,2 +1,9 @@
 card rpg rogue-lite
 
+Cards can heal, attack, buff/debuff, shield
+Passive regen of x after each fight
+Arifacts? that can buff regen and stuff
+Card "stamps"? that lower cost, idk
+risky cards, high risk high reward
+
+
